@@ -150,7 +150,7 @@ public abstract class MinMaxHeapBase<TArity, T>
 
     public void CopyTo(T[] array, int arrayIndex)
     {
-        new ArraySegment<T>(_values, 0, _count).CopyTo(array, arrayIndex);
+        Array.Copy(_values, 0, array, arrayIndex, _count);
     }
 
     public bool Remove(T item)

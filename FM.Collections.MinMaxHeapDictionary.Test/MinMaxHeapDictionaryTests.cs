@@ -1,4 +1,3 @@
-using System.Collections.Immutable;
 using FM.Collections.Comparers;
 
 namespace FM.Collections.Test;
@@ -24,7 +23,7 @@ public abstract class MinMaxHeapDictionaryTests<TArity>
         var bottom = value.Min.Value - 1.0;
         value[mid.Key] = bottom;
         
-        Assert.That(value.Min, Is.EqualTo(KeyValuePair.Create(mid.Key, bottom)));
+        Assert.That(value.Min, Is.EqualTo(new KeyValuePair<int,double>(mid.Key, bottom)));
         Assert.That(Algorithms.MinMaxHeap.IsMinMaxHeap(value.Values.ToList(), Comparer<double>.Default, default(TArity)));
     }
     
@@ -33,7 +32,7 @@ public abstract class MinMaxHeapDictionaryTests<TArity>
     {
         var avg = (value.Min.Value + value.Max.Value) / 2.0;
         value[value.Min.Key] = avg + 0.001;
-        Assert.That(value.Min, Is.EqualTo(value.MinBy(x => x.Value)));
+        Assert.That(value.Min, Is.EqualTo(value.OrderBy(x => x.Value).First()));
         Assert.That(Algorithms.MinMaxHeap.IsMinMaxHeap(value.Values.ToList(), Comparer<double>.Default, default(TArity)));
     }
         
@@ -45,7 +44,7 @@ public abstract class MinMaxHeapDictionaryTests<TArity>
         var bottom = value.Max.Value + 1.0;
         value[mid.Key] = bottom;
         
-        Assert.That(value.Max, Is.EqualTo(KeyValuePair.Create(mid.Key, bottom)));
+        Assert.That(value.Max, Is.EqualTo(new KeyValuePair<int,double>(mid.Key, bottom)));
         Assert.That(Algorithms.MinMaxHeap.IsMinMaxHeap(value.Values.ToList(), Comparer<double>.Default, default(TArity)));
     }
     
@@ -54,7 +53,7 @@ public abstract class MinMaxHeapDictionaryTests<TArity>
     {
         var avg = (value.Min.Value + value.Max.Value) / 2.0;
         value[value.Max.Key] = avg - 0.001;
-        Assert.That(value.Max, Is.EqualTo(value.MaxBy(x => x.Value)));
+        Assert.That(value.Max, Is.EqualTo(value.OrderByDescending(x => x.Value).First()));
     }
     
     [Test, TestCaseSource(nameof(NonEmptyDictionaries))]
@@ -99,13 +98,13 @@ public abstract class MinMaxHeapDictionaryTests<TArity>
     [Test, TestCaseSource(nameof(NonEmptyDictionaries))]
     public void can_remove_min_items_until_empty(MinMaxHeapDictionary<TArity, KeyValuePairByComparableValueComparer<int, double>, int, double> value)
     {
-        var check = value.ToImmutableDictionary();
+        var check = value.ToDictionary(x => x.Key, x => x.Value);
 
         while (value.Count > 0)
         {
             var min = value.Min.Key;
             Assert.That(value.Remove(min), Is.True);
-            check = check.Remove(min);
+            check.Remove(min);
             Assert.That(value.ToDictionary(x => x.Key, x => x.Value), Is.EqualTo(check));
             Assert.That(value, Does.Not.ContainKey(min));
             Assert.That(Algorithms.MinMaxHeap.IsMinMaxHeap(value.RawValues, value.Comparer, default(TArity)), Is.True);
@@ -137,7 +136,7 @@ public abstract class MinMaxHeapDictionaryTests<TArity>
         var minValue = sut.Min.Value - 1.0;
         sut[item.Key] = minValue;
 
-        Assert.That(sut.Min, Is.EqualTo(KeyValuePair.Create(item.Key, minValue)));
+        Assert.That(sut.Min, Is.EqualTo(new KeyValuePair<int,double>(item.Key, minValue)));
         Assert.That(Algorithms.MinMaxHeap.IsMinMaxHeap(sut.RawValues, sut.Comparer, default(TArity)), Is.True);
     }
     
@@ -153,7 +152,7 @@ public abstract class MinMaxHeapDictionaryTests<TArity>
         var maxValue = sut.Max.Value + 1.0;
         sut[item.Key] = maxValue;
 
-        Assert.That(sut.Max, Is.EqualTo(KeyValuePair.Create(item.Key, maxValue)));
+        Assert.That(sut.Max, Is.EqualTo(new KeyValuePair<int,double>(item.Key, maxValue)));
         Assert.That(Algorithms.MinMaxHeap.IsMinMaxHeap(sut.Values.ToList(), Comparer<double>.Default, default(TArity)));
     }
 

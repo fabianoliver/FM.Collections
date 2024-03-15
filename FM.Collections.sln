@@ -12,6 +12,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM.Collections.MinMaxHeap.T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{7D6C08A9-0445-4511-8315-C51EC0C97E80}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{A6DF3A3C-9C68-45B4-BCB1-3BA1A5525A99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{EB88CFBB-0FBA-477B-8DAE-E66A0AE7035A}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\test.yml = .github\workflows\test.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +49,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{69E95104-1A44-4A24-8ABB-594037928552} = {7D6C08A9-0445-4511-8315-C51EC0C97E80}
 		{A08CB645-344F-4034-A26A-08B2567EE3AA} = {7D6C08A9-0445-4511-8315-C51EC0C97E80}
+		{EB88CFBB-0FBA-477B-8DAE-E66A0AE7035A} = {A6DF3A3C-9C68-45B4-BCB1-3BA1A5525A99}
 	EndGlobalSection
 EndGlobal

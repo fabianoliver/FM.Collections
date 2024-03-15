@@ -1,0 +1,31 @@
+name: Test
+
+on: push
+
+jobs:
+  test:
+    name: Run library tests
+    strategy:
+      matrix:
+        include:
+          - target: net462
+            os: windows-latest
+          - target: net6.0
+          - target: net8.0
+    runs-on: ${{ matrix.os || 'ubuntu-latest' }}
+    steps:
+      - name: Pull code
+        uses: actions/checkout@v4
+      - name: Use .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+      - name: Run unit tests
+        run: |
+          set -xe
+
+          test_flags="--framework ${{ matrix.target }}"
+
+          dotnet test $test_flags "FM.Collections.MinMaxHeap.Test"
+          dotnet test $test_flags "FM.Collections.MinMaxHeapDictionary.Test"
+        shell: bash
