@@ -1,5 +1,4 @@
-﻿using System.Collections.Immutable;
-using FM.Collections.Comparers;
+﻿using FM.Collections.Comparers;
 
 namespace FM.Collections.Test;
 
@@ -67,10 +66,10 @@ public abstract class MinMaxHeapTests<TArity> where TArity : struct, IConstInt
     [Test, TestCaseSource(nameof(NonEmptyHeaps))]
     public void can_remove_max_item(MinMaxHeap<TArity, ComparableComparer<double>, double> value)
     {
-        var items = value.ToImmutableList();
+        var items = value.ToList();
         var max = value.Max;
         var removed = value.RemoveMax();
-        items = items.Remove(max);
+        items.Remove(max);
         Assert.That(max, Is.EqualTo(removed));
         Assert.That(value, Is.EquivalentTo(items));
         Assert.That(FM.Collections.Algorithms.MinMaxHeap.IsMinMaxHeap(value.RawValues, value.Comparer, default(TArity)), Is.True);
@@ -79,10 +78,10 @@ public abstract class MinMaxHeapTests<TArity> where TArity : struct, IConstInt
     [Test, TestCaseSource(nameof(NonEmptyHeaps))]
     public void can_remove_min_item(MinMaxHeap<TArity, ComparableComparer<double>, double> value)
     {
-        var items = value.ToImmutableList();
+        var items = value.ToList();
         var min = value.Min;
         var removed = value.RemoveMin();
-        items = items.Remove(min);
+        items.Remove(min);
         Assert.That(min, Is.EqualTo(removed));
         Assert.That(value, Is.EquivalentTo(items));
         Assert.That(FM.Collections.Algorithms.MinMaxHeap.IsMinMaxHeap(value.RawValues, value.Comparer, default(TArity)), Is.True);
