@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM.Collections.MinMaxHeapDictionary", "FM.Collections.MinMaxHeapDictionary\FM.Collections.MinMaxHeapDictionary.csproj", "{F2BD56F8-5D34-4A74-A687-61C7A87FC818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM.Collections.MinMaxHeapDictionary.Test", "FM.Collections.MinMaxHeapDictionary.Test\FM.Collections.MinMaxHeapDictionary.Test.csproj", "{69E95104-1A44-4A24-8ABB-594037928552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM.Collections.Benchmark", "FM.Collections.Benchmark\FM.Collections.Benchmark.csproj", "{3CED6FD5-6F23-4D58-9592-DBB656ED4919}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM.Collections.MinMaxHeap", "FM.Collections.MinMaxHeap\FM.Collections.MinMaxHeap.csproj", "{03554417-867B-43AB-B7D8-A7259ED35695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM.Collections.MinMaxHeap.Test", "FM.Collections.MinMaxHeap.Test\FM.Collections.MinMaxHeap.Test.csproj", "{A08CB645-344F-4034-A26A-08B2567EE3AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{7D6C08A9-0445-4511-8315-C51EC0C97E80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2BD56F8-5D34-4A74-A687-61C7A87FC818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2BD56F8-5D34-4A74-A687-61C7A87FC818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2BD56F8-5D34-4A74-A687-61C7A87FC818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2BD56F8-5D34-4A74-A687-61C7A87FC818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E95104-1A44-4A24-8ABB-594037928552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E95104-1A44-4A24-8ABB-594037928552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E95104-1A44-4A24-8ABB-594037928552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E95104-1A44-4A24-8ABB-594037928552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CED6FD5-6F23-4D58-9592-DBB656ED4919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CED6FD5-6F23-4D58-9592-DBB656ED4919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CED6FD5-6F23-4D58-9592-DBB656ED4919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CED6FD5-6F23-4D58-9592-DBB656ED4919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03554417-867B-43AB-B7D8-A7259ED35695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03554417-867B-43AB-B7D8-A7259ED35695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03554417-867B-43AB-B7D8-A7259ED35695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03554417-867B-43AB-B7D8-A7259ED35695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A08CB645-344F-4034-A26A-08B2567EE3AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A08CB645-344F-4034-A26A-08B2567EE3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A08CB645-344F-4034-A26A-08B2567EE3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A08CB645-344F-4034-A26A-08B2567EE3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69E95104-1A44-4A24-8ABB-594037928552} = {7D6C08A9-0445-4511-8315-C51EC0C97E80}
+		{A08CB645-344F-4034-A26A-08B2567EE3AA} = {7D6C08A9-0445-4511-8315-C51EC0C97E80}
+	EndGlobalSection
+EndGlobal

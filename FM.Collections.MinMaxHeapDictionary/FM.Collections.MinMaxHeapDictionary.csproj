@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <LangVersion>10.0</LangVersion>
+        <AssemblyName>FM.Collections.MinMaxHeapDictionary</AssemblyName>
+        <RootNamespace>FM.Collections</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="FM.Collections.MinMaxHeapDictionary.Test" />
+        <InternalsVisibleTo Include="FM.Collections.MinMaxHeapDictionary.Benchmark" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FM.Collections.MinMaxHeap\FM.Collections.MinMaxHeap.csproj" />
+    </ItemGroup>
+</Project>
