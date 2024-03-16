@@ -21,6 +21,10 @@ public abstract class MinMaxHeapDictionaryBase<TArity, TComparer, TKey, TValue> 
         _inner = new MinMaxHeapDictionaryImpl<TArity, TComparer, TKey, TValue>(new MinMaxDictionaryNodeComparer<TComparer, TKey, TValue>(comparer), keyComparer, values);
     }
 
+    protected MinMaxHeapDictionaryBase(MinMaxHeapDictionaryBase<TArity, TComparer, TKey, TValue> self)
+    {
+        _inner = new MinMaxHeapDictionaryImpl<TArity, TComparer, TKey, TValue>(self._inner);
+    }
     internal IReadOnlyList<KeyValuePair<TKey, TValue>> RawValues => _inner.RawValues;
 
     public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => _inner.GetEnumerator();

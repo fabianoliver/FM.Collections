@@ -26,6 +26,13 @@ public abstract class MinMaxHeapBase<TArity, T>
         _values = new T[Math.Max(capacity, 1)];
     }
 
+    protected MinMaxHeapBase(MinMaxHeapBase<TArity, T> self)
+    {
+        _values = new T[self._values.Length];
+        Array.Copy(self._values, _values, self._count);
+        _count = self._count;
+    }
+
     protected void InitializeWith(IEnumerable<T> items)
     {
 #if NET6_0_OR_GREATER
@@ -588,6 +595,11 @@ public abstract class MinMaxHeapBase<TArity, TComparer, T> : MinMaxHeapBase<TAri
     protected MinMaxHeapBase(TComparer comparer, int capacity = -1) : base(capacity)
     {
         _comparer = comparer;
+    }
+
+    protected MinMaxHeapBase(MinMaxHeapBase<TArity, TComparer, T>  self) : base(self)
+    {
+        _comparer = self._comparer;
     }
 
     protected MinMaxHeapBase(TComparer comparer, IEnumerable<T> items)

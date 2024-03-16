@@ -155,6 +155,23 @@ public abstract class MinMaxHeapTests<TArity> where TArity : struct, IConstInt
         Assert.That(sut.Max, Is.EqualTo(maxValue));
         Assert.That(FM.Collections.Algorithms.MinMaxHeap.IsMinMaxHeap(sut.RawValues, sut.Comparer, default(TArity)), Is.True);
     }
+    
+    [Test, TestCaseSource(nameof(NonEmptyHeaps))]
+    public void can_copy(MinMaxHeap<TArity, ComparableComparer<double>, double> value)
+    {
+        var copied = new MinMaxHeap<TArity, ComparableComparer<double>, double>(value);
+        
+        Assert.That(copied.Min, Is.EqualTo(value.Min));
+        Assert.That(copied.Max, Is.EqualTo(value.Max));
+        Assert.That(copied.Count, Is.EqualTo(value.Count));
+        Assert.That(copied, Is.EquivalentTo(value));
+
+        copied.RemoveMin();
+        Assert.That(copied.Count, Is.EqualTo(value.Count-1));
+        
+        if(copied.Count > 0)
+            Assert.That(copied.Min, Is.Not.EqualTo(value.Min));
+    }
 
     [TestCase(0, 0, 50_000)]
     [TestCase(1, 0, 50_000)]

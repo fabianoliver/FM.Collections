@@ -155,6 +155,23 @@ public abstract class MinMaxHeapDictionaryTests<TArity>
         Assert.That(sut.Max, Is.EqualTo(new KeyValuePair<int,double>(item.Key, maxValue)));
         Assert.That(Algorithms.MinMaxHeap.IsMinMaxHeap(sut.Values.ToList(), Comparer<double>.Default, default(TArity)));
     }
+    
+    [Test, TestCaseSource(nameof(NonEmptyDictionaries))]
+    public void can_copy(MinMaxHeapDictionary<TArity, KeyValuePairByComparableValueComparer<int, double>, int, double> value)
+    {
+        var copied = new MinMaxHeapDictionary<TArity, KeyValuePairByComparableValueComparer<int, double>, int, double>(value);
+        
+        Assert.That(copied.Min, Is.EqualTo(value.Min));
+        Assert.That(copied.Max, Is.EqualTo(value.Max));
+        Assert.That(copied.Count, Is.EqualTo(value.Count));
+        Assert.That(copied.OrderBy(x => x.Key), Is.EqualTo(value.OrderBy(x => x.Key)));
+
+        copied.RemoveMin();
+        Assert.That(copied.Count, Is.EqualTo(value.Count-1));
+        
+        if(copied.Count > 0)
+            Assert.That(copied.Min, Is.Not.EqualTo(value.Min));
+    }
 
     [Test, Ignore("time consuming")]
     public void random_mutations_leave_dictionary_in_correct_state()
