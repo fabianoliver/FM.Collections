@@ -1,6 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
 using FM.Collections.Comparers;
-using FM.Collections.Experimental;
 
 namespace FM.Collections.Benchmark.HeapVsBcl;
 
@@ -14,7 +13,6 @@ public class ExperimentalRemoveMin
     [Params(100)]
     public double PercentToRemove { get; set; }
     
-    private ExperimentalMinMaxHeap<ComparableComparer<double>, double> _experimental;
     private MinMaxHeap<Arity.Two, ComparableComparer<double>, double> _minMaxHeap;
     private MinMaxHeap<Arity.Four, ComparableComparer<double>, double> _minMaxHeap4;
 
@@ -35,7 +33,6 @@ public class ExperimentalRemoveMin
     [IterationSetup]
     public void IterationSetup()
     {
-        _experimental = new ExperimentalMinMaxHeap<ComparableComparer<double>, double>(default, _data);
         _minMaxHeap = new MinMaxHeap<Arity.Two, ComparableComparer<double>, double>(default, _data);
         _minMaxHeap4 = new MinMaxHeap<Arity.Four, ComparableComparer<double>, double>(default, _data);
     }
@@ -52,12 +49,5 @@ public class ExperimentalRemoveMin
     {
         for(var i = 0; i < _itemsToRemove; i++)
             _minMaxHeap4.RemoveMin();
-    }
-    
-    [Benchmark]
-    public void Experimental()
-    {
-        for(var i = 0; i < _itemsToRemove; i++)
-            _experimental.RemoveMin();
     }
 }
