@@ -23,6 +23,10 @@ public sealed class MinMaxHeap<TArity, TComparer, T> : MinMaxHeapBase<TArity, TC
     public MinMaxHeap(TComparer comparer, IEnumerable<T> items) : base(comparer, items)
     {
     }
+
+    public MinMaxHeap(MinMaxHeap<TArity, TComparer, T> self) : base(self)
+    {
+    }
 }
 
 /// <summary>
@@ -43,6 +47,10 @@ public sealed class MinMaxHeap<TComparer, T> : MinMaxHeapBase<Arity.Two, TCompar
     public MinMaxHeap(TComparer comparer, IEnumerable<T> items) : base(comparer, items)
     {
     }
+
+    public MinMaxHeap(MinMaxHeap<TComparer, T>  self) : base(self)
+    {
+    }
 }
 
 /// <summary>
@@ -58,6 +66,10 @@ public sealed class MinMaxHeap<T> : MinMaxHeapBase<Arity.Two, IComparer<T>, T>, 
     }
     
     public MinMaxHeap(IComparer<T> comparer, IEnumerable<T> items) : base(comparer, items)
+    {
+    }
+
+    public MinMaxHeap(MinMaxHeap<T> self) : base(self)
     {
     }
 }

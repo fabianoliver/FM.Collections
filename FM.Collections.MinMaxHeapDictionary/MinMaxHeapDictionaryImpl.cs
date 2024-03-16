@@ -32,7 +32,6 @@ internal sealed class MinMaxHeapDictionaryImpl<TArity, TComparer, TKey, TValue> 
     private KeyCollection? _keyCollection = null;
     private RawValueCollection? _rawValueCollection = null;
 
-
     public KeyCollection Keys => _keyCollection ??= new KeyCollection(this);
     public ValueCollection Values => _valueCollection ??= new ValueCollection(this);
     internal RawValueCollection RawValues =>  _rawValueCollection ??= new RawValueCollection(this);
@@ -65,6 +64,12 @@ internal sealed class MinMaxHeapDictionaryImpl<TArity, TComparer, TKey, TValue> 
         
         for (var i = 0; i < Count; i++)
             _indices[base[i].Kvp.Key] = base[i].Index;
+    }
+
+    internal MinMaxHeapDictionaryImpl(MinMaxHeapDictionaryImpl<TArity, TComparer, TKey, TValue> self) : base(self)
+    {
+        KeyComparer = self.KeyComparer;
+        _indices = new Dictionary<TKey, Index>(self._indices);
     }
     
     private static IEnumerable<MinMaxDictionaryNode<TKey, TValue>> CreateNodes(IEnumerable<KeyValuePair<TKey, TValue>> source)

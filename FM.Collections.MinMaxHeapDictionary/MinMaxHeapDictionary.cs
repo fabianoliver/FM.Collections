@@ -27,6 +27,10 @@ public sealed class MinMaxHeapDictionary<TArity, TComparer, TKey, TValue> : MinM
         : base(comparer, values, keyComparer)
     {
     }
+    
+    public MinMaxHeapDictionary(MinMaxHeapDictionary<TArity, TComparer, TKey, TValue> self) : base(self)
+    {
+    }
 }
 
 public sealed class MinMaxHeapDictionary<TComparer, TKey, TValue> : MinMaxHeapDictionaryBase<Arity.Two, TComparer, TKey, TValue>
@@ -43,6 +47,10 @@ public sealed class MinMaxHeapDictionary<TComparer, TKey, TValue> : MinMaxHeapDi
         : base(comparer, values, keyComparer)
     {
     }
+    
+    public MinMaxHeapDictionary(MinMaxHeapDictionary<TComparer, TKey, TValue> self) : base(self)
+    {
+    }
 }
 
 public sealed class MinMaxHeapDictionary<TKey, TValue> : MinMaxHeapDictionaryBase<Arity.Two, IComparer<KeyValuePair<TKey, TValue>>, TKey, TValue>
@@ -55,6 +63,10 @@ public sealed class MinMaxHeapDictionary<TKey, TValue> : MinMaxHeapDictionaryBas
 
     public MinMaxHeapDictionary(IComparer<KeyValuePair<TKey, TValue>> comparer, IEnumerable<KeyValuePair<TKey, TValue>> values, IEqualityComparer<TKey>? keyComparer = null)
         : base(comparer, values, keyComparer)
+    {
+    }
+
+    public MinMaxHeapDictionary(MinMaxHeapDictionary<TKey, TValue> self) : base(self)
     {
     }
 }
