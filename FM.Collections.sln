@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\publish.yml = .github\workflows\publish.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM.Collections.ImmutableCopyOnWriteDictionary", "FM.Collections.ImmutableCopyOnWriteDictionary\FM.Collections.ImmutableCopyOnWriteDictionary.csproj", "{8A124853-1958-4BA5-8F25-1B8F842E57D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FM.Collections.ImmutableCopyOnWriteDictionary.Test", "FM.Collections.ImmutableCopyOnWriteDictionary.Test\FM.Collections.ImmutableCopyOnWriteDictionary.Test.csproj", "{72B8B229-31DF-4288-A417-B9EC94D90B6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +51,19 @@ Global
 		{A08CB645-344F-4034-A26A-08B2567EE3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A08CB645-344F-4034-A26A-08B2567EE3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A08CB645-344F-4034-A26A-08B2567EE3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A124853-1958-4BA5-8F25-1B8F842E57D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A124853-1958-4BA5-8F25-1B8F842E57D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A124853-1958-4BA5-8F25-1B8F842E57D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A124853-1958-4BA5-8F25-1B8F842E57D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B8B229-31DF-4288-A417-B9EC94D90B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B8B229-31DF-4288-A417-B9EC94D90B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B8B229-31DF-4288-A417-B9EC94D90B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B8B229-31DF-4288-A417-B9EC94D90B6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{69E95104-1A44-4A24-8ABB-594037928552} = {7D6C08A9-0445-4511-8315-C51EC0C97E80}
 		{A08CB645-344F-4034-A26A-08B2567EE3AA} = {7D6C08A9-0445-4511-8315-C51EC0C97E80}
 		{EB88CFBB-0FBA-477B-8DAE-E66A0AE7035A} = {A6DF3A3C-9C68-45B4-BCB1-3BA1A5525A99}
+		{72B8B229-31DF-4288-A417-B9EC94D90B6B} = {7D6C08A9-0445-4511-8315-C51EC0C97E80}
 	EndGlobalSection
 EndGlobal

@@ -3,7 +3,7 @@
 on:
   push:
     tags:
-      - '*'
+      - "[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
   build:
@@ -16,15 +16,20 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
+      - name: Set VERSION variable from tag
+        run: echo "VERSION=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+      - name: Print version
+        run: echo "Version is ${{ env.VERSION }}"
       - name: Build packages
         run: |
           set -xe
 
           release_directory=releases
-          pack_flags="--configuration Release --output $release_directory /p:ContinuousIntegrationBuild=true"
+          pack_flags="--configuration Release --output $release_directory /p:ContinuousIntegrationBuild=true /p:Version=${VERSION}"
 
           dotnet pack $pack_flags "FM.Collections.MinMaxHeap"
           dotnet pack $pack_flags "FM.Collections.MinMaxHeapDictionary"
+          dotnet pack $pack_flags "FM.Collections.ImmutableCopyOnWriteDictionary"
         shell: bash
       - name: Draft GitHub release
         uses: actions/github-script@v7
