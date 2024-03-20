@@ -28,4 +28,5 @@ jobs:
 
           dotnet test $test_flags "FM.Collections.MinMaxHeap.Test"
           dotnet test $test_flags "FM.Collections.MinMaxHeapDictionary.Test"
+          dotnet test $test_flags "FM.Collections.ImmutableCopyOnWriteDictionary.Test"
         shell: bash
